@@ -1,0 +1,69 @@
+version(1);
+
+project_name = "Advent of Code";
+
+patterns =
+{
+    "*.c",
+    "*.h",
+    "*.bat",
+    "*.4coder",
+    "*.txt",
+};
+
+blacklist_patterns =
+{
+    ".*",
+};
+
+load_paths =
+{
+    {
+        { {"."}, .recursive = true, .relative = true }, .os = "win"
+    },
+};
+
+command_list =
+{
+    //- Build
+    {
+        .name = "build",
+        .out = "*compilation*",
+        .footer_panel = true,
+        .save_dirty_files = true,
+        .cursor_at_end = true,
+        .cmd =
+        {
+            { "build.bat", .os = "win" },
+        },
+    },
+    
+    //- Run
+    {
+        .name = "run",
+        .out = "*compilation*",
+        .footer_panel = true,
+        .save_dirty_files = true,
+        .cursor_at_end = true,
+        .cmd =
+        {
+            { "run.bat", .os = "win" },
+        },
+    },
+    
+    //- Misc
+    {
+        .name = "open file explorer",
+        .out = "*compilation*",
+        .footer_panel = true,
+        .save_dirty_files = true,
+        .cursor_at_end = false,
+        .cmd =
+        {
+            { "explorer.exe .", .os = "win" },
+        },
+    },
+};
+
+fkey_command[8] = "build";
+fkey_command[1] = "run";

@@ -1,0 +1,9 @@
+*build*
+build/*
+build
+
+*.exe
+*.obj
+*.pdb
+*.map
+*.ilk
