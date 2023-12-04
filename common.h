@@ -25,6 +25,8 @@ typedef i64 b64;
 //- Utils
 #define ArrayCount(arr) (sizeof(arr)/sizeof((arr)[0]))
 #define Min(a, b) ((a) < (b) ? (a) : (b))
+#define Max(a, b) ((a) > (b) ? (a) : (b))
+#define Clamp(min, x, max) ( ((min)>(x)) ? (min) : ( ((max)<(x)) ? (max):(x) ) )
 
 //- Character utils
 b32 CharIsDigit(u8 c);
@@ -47,6 +49,7 @@ b32  Str8Cmp(Str8 str0, Str8 str1);
 Str8 Str8Advance(Str8 str, u64 idx);
 void EatUntilChar(Str8 str, u8 targetChar, u64 *outIdx);
 void EatUntilCharOrBeforeNewline(Str8 str, u8 targetChar, u64 *outIdx);
+void EatUntilLastDigit(Str8 str, u64 *outIdx);
 u32  U32FromS8(Str8 str);
 
 //- File 

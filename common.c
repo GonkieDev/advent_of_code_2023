@@ -77,6 +77,20 @@ EatUntilCharOrBeforeNewline(Str8 str, u8 targetChar, u64 *outIdx)
     }
 }
 
+void
+EatUntilLastDigit(Str8 str, u64 *outIdx)
+{
+    for (; (*outIdx) < str.size; ++(*outIdx))
+    {
+        u8 c = str.str[*outIdx];
+        if (!CharIsDigit(c))
+        {
+            break;
+        }
+    }
+    (*outIdx) -= 1;
+}
+
 u32
 U32FromS8(Str8 str)
 {
