@@ -45,7 +45,9 @@ struct Str8
 Str8 Str8Make(u8 *str, u64 size);
 b32  Str8Cmp(Str8 str0, Str8 str1);
 Str8 Str8Advance(Str8 str, u64 idx);
-
+void EatUntilChar(Str8 str, u8 targetChar, u64 *outIdx);
+void EatUntilCharOrBeforeNewline(Str8 str, u8 targetChar, u64 *outIdx);
+u32  U32FromS8(Str8 str);
 
 //- File 
 Str8 F_ReadEntire(Str8 filename);

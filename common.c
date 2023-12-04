@@ -46,6 +46,51 @@ Str8Advance(Str8 str, u64 idx)
     return Str8Make(str.str + idx, str.size - idx);
 }
 
+void
+EatUntilChar(Str8 str, u8 targetChar, u64 *outIdx)
+{
+    for (; (*outIdx) < str.size; ++(*outIdx))
+    {
+        u8 c = str.str[*outIdx];
+        if (c == targetChar)
+        {
+            break;
+        }
+    }
+}
+
+void
+EatUntilCharOrBeforeNewline(Str8 str, u8 targetChar, u64 *outIdx)
+{
+    for (; (*outIdx) < str.size; ++(*outIdx))
+    {
+        u8 c = str.str[*outIdx];
+        if (c == targetChar)
+        {
+            break;
+        }
+        if (c == '\n')
+        {
+            (*outIdx) -= 1;
+            break;
+        }
+    }
+}
+
+u32
+U32FromS8(Str8 str)
+{
+    u32 result = 0;
+    for (u32 idx = 0; idx < str.size; idx++)
+    {
+        u8 c = str.str[idx];
+        if (!CharIsDigit(c)) { break; }
+        result *= 10;
+        result += DigitToStr(c);
+    }
+    return result;
+}
+
 //~ File 
 #include <stdio.h>
 Str8
