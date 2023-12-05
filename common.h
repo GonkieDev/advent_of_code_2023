@@ -28,6 +28,9 @@ typedef i64 b64;
 #define Max(a, b) ((a) > (b) ? (a) : (b))
 #define Clamp(min, x, max) ( ((min)>(x)) ? (min) : ( ((max)<(x)) ? (max):(x) ) )
 
+#define ZeroArray(arr) for(u32 idx = 0; idx < ArrayCount(arr); ++idx) { (arr)[idx] = 0; }
+#define PrintArr(arr) for(u32 idx = 0; idx < ArrayCount(arr); ++idx) { printf("%d ", (arr)[idx]); } printf("\n");
+
 //- Character utils
 b32 CharIsDigit(u8 c);
 b32 CharIsNewLine(u8 c);
