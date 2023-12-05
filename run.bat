@@ -2,5 +2,6 @@
 call common.bat
 
 pushd "%build_dir%"
-.\%target%.exe
+echo %cd%
+.\%target%_%part%.exe
 popd
